@@ -1,8 +1,14 @@
 require 'sinatra/base'
+require './lib/diary'
 
-class Diary < Sinatra::Base
+class DiaryManager < Sinatra::Base
   get '/' do
-    "Hello, world"
+    erb :index
+  end
+
+  get '/entries' do
+    @entries = Diary.view_all
+    erb :entries
   end
 
   !run if app_file == $0
