@@ -1,5 +1,9 @@
+require 'pg'
+
 class Diary
   def self.view_all
-    ["Entry 1: Dear Diary", "Entry 2: Dear Diary"]
+    connection = PG.connect :dbname => 'diary_manager'
+    result = connection.exec "SELECT entry FROM diary"
+    result.map { |row| row['entry'] }
   end
 end
