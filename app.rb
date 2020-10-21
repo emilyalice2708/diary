@@ -7,7 +7,7 @@ class DiaryManager < Sinatra::Base
   end
 
   get '/entries' do
-    @entries = Diary.view_all
+    @diary_entries = Diary.view_all
     erb :entries
   end
 
