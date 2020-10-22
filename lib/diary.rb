@@ -2,7 +2,7 @@ require 'pg'
 
 class Diary
   def self.view_all
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect :dbname => 'diary_manager_test'
     else
       connection = PG.connect :dbname => 'diary_manager'
@@ -13,7 +13,7 @@ class Diary
   end
 
   def self.add(entry)
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect :dbname => 'diary_manager_test'
     else
       connection = PG.connect :dbname => 'diary_manager'
