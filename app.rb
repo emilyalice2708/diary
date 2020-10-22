@@ -17,7 +17,7 @@ class DiaryManager < Sinatra::Base
   end
 
   post '/diary/entries' do
-    Diary.add(params[:entry])
+    Diary.add(title: params[:title], entry: params[:entry])
     redirect to '/diary/entries'
   end
 

@@ -1,1 +1,8 @@
-<%=@diary_entries%>
+<ul>
+  <% @diary_entries.each do |entry| %>
+    <li>
+      <p> Title: <%= entry.title %></p>
+      <p> <%= entry.entry %>
+    </li>
+  <% end %>
+</ul>
