@@ -15,12 +15,18 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
+require 'reset_test_database'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+
+RSpec.configure do |config|
+  reset_test_database
+end
 
 Capybara.app = DiaryManager
 RSpec.configure do |config|
